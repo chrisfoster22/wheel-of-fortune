@@ -1,3 +1,17 @@
+.letter {
+  width: 50px;
+  height: 100px;
+  border: 2px solid black;
+  display: inline-block; }
 
+.word {
+  margin: 30px;
+  display: inline-block; }
+
+.guess-container div {
+  font-size: 20px;
+  padding: 20px;
+  border: 2px outset darkblue;
+  display: inline-block; }
 
 /*# sourceMappingURL=style.css.map */
