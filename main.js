@@ -1,9 +1,16 @@
 $(document).ready(function() {
-
+	var guessInput = $("#guessInput");
+	guessInput.focus();
 	var phrase = "try to guess this phrase";
 	var splitPhrase = phrase.split(" ");
 
 	var allLetters = splitPhrase.join('').split('');
+
+	guessInput.on("keydown", function(event) {
+		if (event.key === "Enter") {
+			guessLetter(guessInput.val());
+		}
+	})
 
 
 	populatePhrase(splitPhrase);
@@ -21,7 +28,10 @@ $(document).ready(function() {
 			$(letterDivs[letterIndex]).removeClass("unguessed");
 			allLetters.splice(letterIndex, 1);
 			guessLetter(letter);
+
 		}
+		$("#guessInput").val("");
+		$("#guessInput").focus();
 
 	}
 
