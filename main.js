@@ -1,44 +1,48 @@
 $(document).ready(function() {
 
-	var phrase = "Try to guess this phrase";
+	var phrase = "try to guess this phrase";
 	var splitPhrase = phrase.split(" ");
 
-	var allLetters = splitPhrase.join('');
-	var letterDivs = $(".letter");
+	var allLetters = splitPhrase.join('').split('');
+
 
 	populatePhrase(splitPhrase);
 
 	$('#guessBtn').on('click', function() {
 		var guessedLetter = $('#guessInput').val();
-		guessLetter(allLetters, guessedLetter, letterDivs)
+		guessLetter(guessedLetter)
 	});
 
-})
+	function guessLetter(letter) {
+		if (allLetters.indexOf(letter) > -1) {
+			var letterDivs = $(".unguessed");
+			var letterIndex = allLetters.indexOf(letter);
+			$(letterDivs[letterIndex]).append(letter.toUpperCase());
+			$(letterDivs[letterIndex]).removeClass("unguessed");
+			allLetters.splice(letterIndex, 1);
+			guessLetter(letter);
+		}
 
-function guessLetter(phrase, letter, letterDivs) {
-	if (phrase.indexOf(letter) > -1) {
-		var letterIndex = phrase.indexOf(letter);
-		$(letterDivs[letterIndex])
 	}
 
-}
+})
 
 function populatePhrase(phrase) {
 	for (var i = 0; i < phrase.length; i++) {
 
 		var word = $("<div class='word'></div>");
 		$("#board").append(word);
-		populateLetters(phrase[i]);
+		populateLetters(word, phrase[i]);
 
 	}
 }
 
 
-function populateLetters(word) {
+function populateLetters(word, phrase) {
 
-	for (var i = 0; i < word.length; i++) {
-		var letter = $("<div class='letter'></div>")
-		$('#board').append(letter);
+	for (var i = 0; i < phrase.length; i++) {
+		var letter = $("<div class='letter unguessed'></div>")
+		word.append(letter);
 	}
 
 
