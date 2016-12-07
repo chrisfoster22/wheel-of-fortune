@@ -2,3 +2,23 @@
 	margin: 30px;
 	display: inline-block;
 }
+
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(359deg);
+  }
+}
+img
+{
+	width: 20%;
+	display: block;
+	margin: 0 auto;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         21s; 
+    -webkit-animation-iteration-count:  infinite;
+    // -webkit-transition-timing-function: linear;
+    }

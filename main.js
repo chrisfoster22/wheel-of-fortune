@@ -41,7 +41,12 @@ function populatePhrase(phrase) {
 function populateLetters(word, phrase) {
 
 	for (var i = 0; i < phrase.length; i++) {
-		var letter = $("<div class='letter unguessed'></div>")
+		var letter;
+		if (phrase[i] === "'") {
+			letter = $("<div class='letter'>'</div>") 
+		} else {
+			letter = $("<div class='letter unguessed'></div>")
+		}
 		word.append(letter);
 	}
 

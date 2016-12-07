@@ -1,5 +1,5 @@
 body {
-  background-color: green; }
+  background-color: #169C73; }
 
 .letter {
   width: 50px;
@@ -10,12 +10,27 @@ body {
   line-height: 100px;
   text-align: center;
   font-size: 36px;
-  color: white;
-  background-color: gold; }
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #000;
+  background-color: #F7F1FE; }
 
 .word {
   margin: 30px;
   display: inline-block; }
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(359deg); } }
+img {
+  width: 20%;
+  display: block;
+  margin: 0 auto;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 21s;
+  -webkit-animation-iteration-count: infinite; }
 
 .guess-container div {
   font-size: 20px;
