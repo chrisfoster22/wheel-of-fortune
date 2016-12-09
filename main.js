@@ -1,7 +1,8 @@
 $(document).ready(function() {
+
 	var guessInput = $("#guessInput");
 	guessInput.focus();
-	var phrase = "try to guess this phrase";
+	var phrase = "The world is a vampire";
 	var splitPhrase = phrase.split(" ");
 
 	var allLetters = splitPhrase.join('').split('');
@@ -12,13 +13,16 @@ $(document).ready(function() {
 		}
 	})
 
-
 	populatePhrase(splitPhrase);
 
 	$('#guessBtn').on('click', function() {
 		var guessedLetter = $('#guessInput').val();
 		guessLetter(guessedLetter)
 	});
+
+
+
+
 
 	function guessLetter(letter) {
 		if (allLetters.indexOf(letter) > -1) {
